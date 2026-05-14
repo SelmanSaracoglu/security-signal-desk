@@ -1,12 +1,22 @@
+import { useState } from "react";
+
 import { Badge } from "../../../components/ui/Badge";
+import { Button } from "../../../components/ui/Button";
 import { Card } from "../../../components/ui/Card";
 import { PageHeader } from "../../../components/ui/PageHeader";
-import { EmptyState } from "../../../components/ui/EmptyState";
-import { Button } from "../../../components/ui/Button";
-import { mockCurrentUser } from "../data/mockCurrentUser";
+import { AlertDetailsPanel } from "../../alerts/components/AlertDetailsPanel";
+import { AlertList } from "../../alerts/components/AlertList";
 import { mockAlerts } from "../data/mockAlerts";
+import { mockCurrentUser } from "../data/mockCurrentUser";
 
 export function DashboardPage() {
+    
+    const [selectedAlertId, setSelectedAlertId] = useState<string | null>(
+        mockAlerts[0]?.id ?? null
+    );
+
+    const selectedAlert = mockAlerts.find((alert) => alert.id === selectedAlertId);
+
     const openAlertCount = mockAlerts.filter((alert) => alert.status === "open").length;
     const criticalAlertCount = mockAlerts.filter(
         (alert) => alert.severity === "critical",
@@ -77,45 +87,15 @@ export function DashboardPage() {
         </Card>
 
         <Card title="Security Alerts">
-          {mockAlerts.length > 0 ? (
-            <div className="alert-list">
-              {mockAlerts.map((alert) => (
-                <article className="alert-item" key={alert.id}>
-                  <div className="alert-item-header">
-                    <div>
-                      <h3>{alert.title}</h3>
-                      <p>{alert.description}</p>
-                    </div>
-
-                    <Badge
-                      variant={
-                        alert.severity === "critical" ? "danger" : "warning"
-                      }
-                    >
-                      {alert.severity}
-                    </Badge>
-                  </div>
-
-                  <div className="alert-item-footer">
-                    <span>{alert.source}</span>
-
-                    <Badge
-                      variant={
-                        alert.status === "resolved" ? "success" : "default"
-                      }
-                    >
-                      {alert.status}
-                    </Badge>
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <EmptyState
-              title="No alerts found"
-              description="There are no security alerts to display."
+            <AlertList
+                alerts={mockAlerts}
+                selectedAlertId={selectedAlertId}
+                onSelectAlert={setSelectedAlertId}
             />
-          )}
+        </Card>
+
+        <Card title="Alert Details">
+            <AlertDetailsPanel alert={selectedAlert} />
         </Card>
       </section>
 

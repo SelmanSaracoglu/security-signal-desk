@@ -268,10 +268,15 @@ button {
 }
 
 .alert-item {
-  padding: 16px;
-  border: 1px solid rgba(51, 65, 85, 0.85);
-  border-radius: 16px;
-  background: rgba(2, 6, 23, 0.34);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.alert-item:hover {
+  transform: translateY(-1px);
 }
 
 .alert-item-header {
@@ -279,6 +284,16 @@ button {
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
+}
+
+.alert-item--selected {
+  border-color: rgba(96, 165, 250, 0.9);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.18),
+      rgba(15, 23, 42, 0.92)
+    );
 }
 
 .alert-item h3 {
