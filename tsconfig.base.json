@@ -1,6 +1,3 @@
-// Monorepo içinde ortak TypeScript ayarlarının neden root seviyede tutulduğunu anlamak.
-// Her yerde ayrı ayrı TypeScript ayarı yazmak yerine ortak kuralları root seviyeye koyuyoruz.
-
 {
   "compilerOptions": {
     "target": "ES2020",

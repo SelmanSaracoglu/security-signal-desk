@@ -1,12 +1,11 @@
 {
   "name": "security-signal-desk",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
-  "description": "A security operations themed React and TypeScript dashboard project for practicing scalable frontend architecture.",
-  "scripts": {  
-    "dev": "npm run dev --workspace apps/web",
-    "build": "npm run build --workspace apps/web",
-    "typecheck": "npm run typecheck --workspace apps/web"
+  "description": "A security operations themed React and TypeScript learning project.",
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "dev": "npm run dev --workspace apps/web"
   },
   "workspaces": [
     "apps/*",
@@ -15,12 +14,9 @@
   "keywords": [
     "react",
     "typescript",
-    "dashboard",
     "security",
-    "soc",
-    "frontend",
-    "monorepo"
+    "dashboard",
+    "learning"
   ],
-  "author": "",
   "license": "MIT"
 }
