@@ -106,9 +106,8 @@ button {
 
 .dashboard-content {
   display: grid;
-  grid-template-columns: 340px minmax(0, 1fr);
-  gap: 16px;
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
 .card {
@@ -263,11 +262,15 @@ button {
 }
 
 .alert-list {
-  display: grid;
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
 }
 
 .alert-item {
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 1rem;
   cursor: pointer;
   transition:
     border-color 0.2s ease,
@@ -283,7 +286,18 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
+  gap: 1.25rem;
+}
+
+.alert-item-header h3 {
+  margin: 0;
+}
+
+.alert-item-header p {
+  max-width: 56rem;
+  margin: 0.35rem 0 0;
+  color: #94a3b8;
+  line-height: 1.6;
 }
 
 .alert-item--selected {
@@ -312,10 +326,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(51, 65, 85, 0.72);
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
 }
 
 .alert-item-footer span {
@@ -375,4 +389,75 @@ button {
   .stats-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.alert-item-details {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  background-color: rgba(15, 23, 42, 0.36);
+  border-radius: 0.85rem;
+}
+
+.alert-item-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.alert-item-details span {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+.alert-item-details strong {
+  color: #e5e7eb;
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profile-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 999px;
+  background-color: rgba(15, 23, 42, 0.72);
+}
+
+.profile-avatar {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 999px;
+  background-color: rgba(59, 130, 246, 0.18);
+  color: #bfdbfe;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.profile-chip p {
+  margin: 0;
+  color: #e5e7eb;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.profile-chip span {
+  display: block;
+  margin-top: 0.1rem;
+  color: #94a3b8;
+  font-size: 0.75rem;
 }

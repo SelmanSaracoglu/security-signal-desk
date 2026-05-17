@@ -32,6 +32,30 @@ export function AlertCard({ alert, isSelected, onSelect }: AlertCardProps) {
           {alert.status}
         </Badge>
       </div>
+
+      {isSelected && (
+        <div className="alert-item-details">
+          <div>
+            <span>Source</span>
+            <strong>{alert.source}</strong>
+          </div>
+
+          <div>
+            <span>Status</span>
+            <strong>{alert.status}</strong>
+          </div>
+
+          <div>
+            <span>Severity</span>
+            <strong>{alert.severity}</strong>
+          </div>
+
+          <div>
+            <span>Created at</span>
+            <strong>{alert.createdAt}</strong>
+          </div>
+        </div>
+      )}
     </article>
   );
 }
